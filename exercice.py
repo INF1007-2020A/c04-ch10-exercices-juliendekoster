@@ -4,7 +4,7 @@
 
 # TODO: Importez vos modules ici
 import numpy as np
-
+import matplotlib.pyplot as
 
 # TODO: Définissez vos fonctions ici (il en manque quelques unes)
 def linear_values() -> np.ndarray:
