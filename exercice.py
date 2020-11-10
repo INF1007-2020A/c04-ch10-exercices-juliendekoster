@@ -33,6 +33,31 @@ def vreate_plot():
     plt.scatter(x, y)
     plt.show()
 
+    
+def monte_carlo( iteration: int=5000) -> float:
+    x_inside_dots = []
+    x_outside_dots = []
+    y_inside_dots = []
+    y_outside_dots = []
+    for i in range(iteration):
+        x = np.random()
+        y = np.random()
+        if np.sqrt(x**2 * y**2) < 1:
+            x_inside_dots.append(x)
+            y_inside_dots.append(y)
+        else:
+            x_outside_dots.append(x)
+            y_outside_dots.append(y)
+    plt.scatter(x_inside_dots, y_inside_dots, label="inside dot")
+    plt.scatter(x_outside_dots, y_outside_dots, label="outside dot")
+    plt.title("calcul de monte-Carlo")
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.show()
+
+    return float(len(inside_dots)) / iteration * 4
+        
+        
 if __name__ == '__main__':
     # TODO: Appelez vos fonctions ici
     print(linear_values())
