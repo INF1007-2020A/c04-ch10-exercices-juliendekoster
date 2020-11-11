@@ -57,11 +57,24 @@ def monte_carlo( iteration: int=5000) -> float:
 
     return float(len(inside_dots)) / iteration * 4
         
-        
+def integrate_and_plt() -> tuple:
+    resutl_inf = integrate.quad(lambda x: np.exp(-x**2), -np.inf, np.inf)
+    print(result_inf)
+    
+    x = np.arange(-4, 4, 0.1)
+    y = [integrate.quad(lambda x: np.exp(-x**2), 0, value)[0] for value in x]
+    
+    plt.plot(x, y)
+    plt.show()
+    return result_inf
+
+
 if __name__ == '__main__':
     # TODO: Appelez vos fonctions ici
     print(linear_values())
     print(coordinate_conversion(np.array([(0, 0), (1, 1), (5, 8)])))
     print(find_closest_index(np.array([0, 5, 10, 12, 8]), 10.5))
     create_plot()
+    print(monte_carlo())
+    print(integrate_and_plt())
     pass
